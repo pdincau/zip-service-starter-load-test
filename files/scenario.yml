@@ -1,0 +1,15 @@
+config:
+  target: 'http://docker.for.mac.localhost:8081'
+  payload:
+    path: "value.csv"
+    fields:
+      - "country"
+      - "code"
+  phases:
+    - duration: 60
+      arrivalRate: 15
+scenarios:
+  - flow:
+    - get:
+        url: "/zip/{{ country }}/{{ code }}"
+
